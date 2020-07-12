@@ -6,6 +6,7 @@
   padding: 0 10px;
   justify-content: flex-end;
   position: relative;
+  text-align: center;
 }
 
 .keep-form {
@@ -22,4 +23,9 @@
 .list-keep {
   width: 70%;
   height: 100%;
+}
+
+.list-keep h2, .keep-form h2 {
+  font-size: 15px;
+  font-weight: 400;
 }

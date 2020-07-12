@@ -4,11 +4,14 @@ header {
   color: #212121;
   display: flex;
   justify-content: center;
-  align-items: center;
-  font-size: 10px;
   position: fixed;
   left: 0;
   top: 0;
   width: 100%;
   z-index: 100;
+}
+
+header h1 {
+  font-weight: 500;
+  font-size: 16px;
 }
