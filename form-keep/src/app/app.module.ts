@@ -1,7 +1,9 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser'
+import { NgModule, Injector } from '@angular/core'
 
-import { AppComponent } from './app.component';
+import { createCustomElement } from '@angular/elements'
+
+import { AppComponent } from './app.component'
 
 @NgModule({
   declarations: [
@@ -10,7 +12,14 @@ import { AppComponent } from './app.component';
   imports: [
     BrowserModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: []
 })
-export class AppModule { }
+export class AppModule {
+  constructor(private injector: Injector) {}
+
+  ngDoBootstrap(): void {
+    const { injector } = this
+    const element = createCustomElement(AppComponent, { injector })
+    customElements.define('micro-form-keep', element)
+  }
+}

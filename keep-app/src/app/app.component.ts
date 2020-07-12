@@ -7,4 +7,13 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   
+  ngOnInit(): void {
+    const scriptMicroFormKeep = document.createElement('script')
+    scriptMicroFormKeep.src = 'http://localhost:5002/main.js'
+    document.body.appendChild(scriptMicroFormKeep)
+
+    const scriptMicroCardsKeep = document.createElement('script')
+    scriptMicroCardsKeep.src = 'http://localhost:5001/main.js'
+    document.body.appendChild(scriptMicroCardsKeep)
+  }
 }
