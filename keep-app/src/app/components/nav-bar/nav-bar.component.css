@@ -1,0 +1,12 @@
+.nav-bar {
+  width: 244px;
+  position: fixed;
+  z-index: 3;
+  height: 100%;
+  top: 60px;
+  left: 0;
+  background: #ffffff;
+  -webkit-box-shadow: 11px 16px 10px -12px rgba(0,0,0,0.36);
+  -moz-box-shadow: 11px 16px 10px -12px rgba(0,0,0,0.36);
+  box-shadow: 11px 16px 10px -12px rgba(0,0,0,0.36);
+}

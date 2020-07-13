@@ -9,7 +9,10 @@ export class HeaderComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void {
+  openNavBar = () => {
+
   }
+
+  ngOnInit(): void {}
 
 }
