@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="images/logo.jpg"  width="1000"  height="250">
+  <img src="images/logo.jpg"  width="1000">
 </p>
 
 ## Introdução
@@ -166,7 +166,7 @@ Micro frontend **form-app** está rodando na porta: http://localhost:5002/main.j
 Micro frontend **cards-app** está rodando na porta: http://localhost:5001/main.js
 
 <p align="left">
-  <img src="images/excelente.jpg"  width="650"  height="520">
+  <img src="images/excelente.jpg"  width="650">
 </p>
 
 ### 🔥 Agora vamos configurar o nosso app root **(keep-app)**
@@ -213,7 +213,7 @@ e adicionaremos as seguintes tags dos Micro Frontends **(form-app, cards-app)**
 ```
 
 <p align="left">
-  <img src="images/fim.jpg"  width="600"  height="520">
+  <img src="images/fim.jpg"  width="600">
 </p>
 
 😁 Legal! Toda nossa aplicação está pronta.
