@@ -1,0 +1,92 @@
+header {
+  padding: 10px 30px;
+  background: #ffffff;
+  color: #212121;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+  border-bottom: 1px solid #dadce0;
+}
+
+header .menu {
+  display: flex;
+  width: 132px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.bars {
+  width: 17px;
+  height: 17px;
+  position: relative;
+}
+
+.bars img {
+  width: 100%;
+  height: 100%;
+}
+
+header .logo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 95px;
+}
+
+header .logo img {
+  width: 40px;
+}
+
+header .logo span {
+  font-size: 22px;
+  font-weight: 500;
+  color: #5f6376;
+}
+
+header .search {
+  margin-left: 50px;
+  max-width: 800px;
+  width: 70%;
+  margin-top: -19px;
+}
+
+header .search input {
+  padding: 12px 20px;
+  border-radius: 7px;
+  border-style: none;
+  width: 100%;
+  border: solid transparent;
+  background: #f1f3f4;
+  font-size: 15px;
+  padding-left: 50px;
+}
+
+header .search input:focus {
+  outline: none;
+  box-shadow: 0px 0px 2px 1px rgba(0,0,0,.2);
+  background: #ffffff;
+}
+
+header .search span {
+  width: 15px;
+  height: 15px;
+  overflow: hidden;
+  position: relative;
+  top: 35px;
+  left: 20px;
+}
+
+header .search span:hover::after {
+  width: 37px;
+  height: 37px;
+}
+
+.search span img {
+  width: 15px;
+  height: 15px;
+}

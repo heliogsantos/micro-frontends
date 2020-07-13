@@ -12,3 +12,23 @@ html,
 body {
   height: 100%;
 }
+
+.btn-hover::after {
+  content: '';
+  position: absolute;
+  width: 49px;
+  height: 49px;
+  background: #9c9eaa;
+  opacity: 0.2;
+  border-radius: 100%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  display: none;
+  transition: 0.2s linear;
+}
+
+.btn-hover:hover::after {
+  display: block;
+  cursor: pointer;
+}
