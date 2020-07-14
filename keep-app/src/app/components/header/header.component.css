@@ -50,10 +50,10 @@ header .logo span {
 }
 
 header .search {
-  margin-left: 50px;
+  margin-left: 90px;
   max-width: 800px;
   width: 70%;
-  margin-top: -19px;
+  margin-top: -30px;
 }
 
 header .search input {
@@ -90,7 +90,7 @@ header .search label:hover::after {
 .search label svg {
   width: 24px;
   height: 24px;
-  opacity: 0.8;
+  opacity: 0.6;
   position: relative;
   top: 7px;
 }
