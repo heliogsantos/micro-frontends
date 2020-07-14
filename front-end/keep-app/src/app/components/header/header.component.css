@@ -44,9 +44,9 @@ header .logo img {
 }
 
 header .logo span {
-  font-size: 22px;
-  font-weight: 500;
-  color: #5f6376;
+  font-size: 21px;
+  font-weight: 400;
+  color: #4d4f52;
 }
 
 header .search {
