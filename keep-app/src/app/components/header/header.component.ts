@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { HeaderService } from './../../services/header-service.service';
+
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -7,12 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  navToggle = true
 
-  openNavBar = () => {
+  constructor(private headerService: HeaderService) { }
 
+  openNavBar() {
+    this.headerService.nav.next(this.navToggle)
+
+    this.headerService.nav.subscribe(value => {
+      this.navToggle = value
+      this.navToggle = !this.navToggle
+    })
   }
 
-  ngOnInit(): void {}
+  ngOnInit() {}
 
 }
