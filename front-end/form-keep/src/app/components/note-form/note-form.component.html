@@ -1,0 +1,19 @@
+<div class="note-wraper" [ngClass]="{'note-open': noteToggle}">
+    <div class="note-header">
+      <div class="btn-hover icon-check">
+        <img src="../../../assets/images/check.svg" alt="check">
+      </div>
+      <div class="input-wraper">
+        <input type="text" [placeholder]="placeholder" (click)="openNote($event)">
+      </div>
+    </div>
+    <div class="note-body"></div>
+    
+    <div class="note-footer" *ngIf="noteToggle">
+      <div class="palleta">
+        <div class="btn-hover">
+          <img src="../../../assets/images/palette.svg" alt="paleta de cores">
+        </div>
+      </div>
+    </div>
+</div>
