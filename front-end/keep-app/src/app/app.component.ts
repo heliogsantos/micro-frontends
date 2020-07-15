@@ -6,6 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+
+  toggle = false
   
   ngOnInit(): void {
     const scriptMicroFormKeep = document.createElement('script')
@@ -15,5 +17,9 @@ export class AppComponent {
     const scriptMicroCardsKeep = document.createElement('script')
     scriptMicroCardsKeep.src = 'http://localhost:5001/main.js'
     document.body.appendChild(scriptMicroCardsKeep)
+
+    document.body.addEventListener('click', () => {
+      this.toggle = true
+    })
   }
 }

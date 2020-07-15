@@ -8,6 +8,11 @@
   text-decoration: none;
 }
 
+html,
+body {
+  height: 100%;
+}
+
 .btn-hover::after {
   content: '';
   position: absolute;
