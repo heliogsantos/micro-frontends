@@ -14,7 +14,6 @@ export class NoteFormComponent implements OnInit {
 
   openNote = () => {
     this.placeholder = 'Titulo'
-    event.stopPropagation()
     this.noteToggle = !this.noteToggle
   }
 

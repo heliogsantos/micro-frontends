@@ -15,16 +15,14 @@ import { NoteFormComponent } from './components/note-form/note-form.component'
     BrowserModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: []
 })
 export class AppModule {
   constructor(private injector: Injector) {}
 
-  /*
     ngDoBootstrap(): void {
       const { injector } = this
       const element = createCustomElement(AppComponent, { injector })
       customElements.define('micro-form-keep', element)
     }
-  */
 }
