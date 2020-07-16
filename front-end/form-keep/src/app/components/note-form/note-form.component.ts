@@ -40,7 +40,10 @@ export class NoteFormComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    document.body.addEventListener('click', this.toogleNote)
+    document.body.addEventListener('click', () => {
+      this.toogleNote()
+      this.noteToggle = false
+    })
   }
 
 }
