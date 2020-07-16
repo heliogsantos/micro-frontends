@@ -1,12 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 
 import { colorPaletteBallsMock } from './mock/palletes-colors.mock'
-
-interface PalleteColors {
-  className: string
-  checkedColor: boolean
-  bgColor: string
-}
+import { PalleteColors } from './models/Pallete-colors.model'
 
 @Component({
   selector: 'app-note-form',
@@ -28,7 +23,7 @@ export class NoteFormComponent implements OnInit {
     this.noteToggle = true
   }
 
-  toogleNote = () => {
+  toogleNote() {
     this.noteToggle = this.toggle
     this.placeholder = 'Criar uma nota...' 
   }
@@ -38,8 +33,8 @@ export class NoteFormComponent implements OnInit {
     colorPaletteBall.checkedColor = true
   }
 
-  removeCheckedPalleteColor = () => {
-    this.colorPaletteBalls.forEach(colorPaletteBall => {
+  removeCheckedPalleteColor() {
+    this.colorPaletteBalls.forEach((colorPaletteBall: PalleteColors) => {
       colorPaletteBall.checkedColor = false
     })
   }
