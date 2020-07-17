@@ -4,10 +4,14 @@
         <img src="../../../assets/images/check.svg" alt="check">
       </div>
       <div class="input-wraper">
-        <input [style.background-color]="noteWraperColor" type="text" [placeholder]="placeholder">
+        <input autocomplete="off" type="text" [placeholder]="placeholder" [(ngModel)]="newNoteForm.title" name="title">
       </div>
     </div>
-    <div class="note-body"></div>
+    <div class="note-body" *ngIf="noteToggle">
+      <div class="input-wraper body">
+        <input type="text" [placeholder]="createNoteText" [(ngModel)]="newNoteForm.description" name="description">
+      </div>
+    </div>
     
     <div class="note-footer" *ngIf="noteToggle">
       <div class="palleta">
@@ -15,11 +19,11 @@
           <img src="../../../assets/images/palette.svg" alt="paleta de cores">
         </div>
         <div class="palleta-box">
-          <div [ngClass]="{'active-color': color.checkedColor}" (click)="addPallelaColor(color)" *ngFor="let color of colorPaletteBalls" [class]="color.className + ' ' +  'palleta-color'"></div>
+          <div [ngClass]="{'active-color': color.checkedColor}" (click)="addChekedPallelaColor(color)" *ngFor="let color of colorPaletteBalls" [class]="color.className + ' ' +  'palleta-color'"></div>
         </div>
       </div>
       <div class="close" *ngIf="noteToggle">
-        <button (click)="closeNoneForm($event)">Fechar</button>
+        <button (click)="closeNoteForm($event)">Fechar</button>
       </div>
     </div>
 </div>
