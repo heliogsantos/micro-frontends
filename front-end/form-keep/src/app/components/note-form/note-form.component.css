@@ -1,6 +1,6 @@
 .note-wraper {
-  padding: 15px 10px;
-  width: 100%;
+  padding: 15px 10px 0px 10px;
+  width: 70%;
   height: 45px;
   background: #ffffff;
   border-radius: 6px;
@@ -11,6 +11,7 @@
   justify-content: space-between;
   flex-direction: column;
   position: relative;
+  margin: 50px auto;
 }
 
 .input-wraper {
@@ -55,9 +56,7 @@
 .note-open {
   min-height: 150px;
   align-items: stretch;
-  padding: 15px 10px;
-
-  margin-top: 100px;
+  padding: 15px 10px 0 10px;
 }
 
 .note-header, .note-body, .note-footer {
@@ -67,12 +66,31 @@
 .note-footer {
   padding: 3px 8px;
   position: relative;
+  display: flex;
+  justify-content: space-between;
+  padding-right: 10px;
+}
+
+.note-footer .close button {
+  font-weight: 500;
+  color: #4d4c4c;
+  font-size: 14px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  padding: 10px 24px;
+}
+
+.note-footer .close button:hover {
+  background: rgba(199, 199, 199, 0.1)
 }
 
 .palleta {
   position: relative;
   width: 15px;
   height: 15px;
+  top: 5px;
 }
 
 .btn-hover {

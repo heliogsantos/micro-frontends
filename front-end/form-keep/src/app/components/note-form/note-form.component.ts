@@ -11,32 +11,44 @@ import { PalleteColors } from './models/Pallete-colors.model'
 export class NoteFormComponent implements OnInit {
 
   noteToggle = false
-  placeholder = 'Criar uma nota...'
+  readonly createNoteText = 'Criar uma nota...'
+  placeholder = this.createNoteText
   @Input() toggle: boolean
   colorPaletteBalls = colorPaletteBallsMock
 
+  noteWraperColor = colorPaletteBallsMock[0].bgColor
+
   constructor() { }
 
-  openNote = event => {
+  openFormInsertNote = (event: any) => {
     event.stopPropagation()
-    this.placeholder = 'Titulo'
+    this.placeholder = 'Título'
     this.noteToggle = true
   }
 
   toogleNote() {
     this.noteToggle = this.toggle
-    this.placeholder = 'Criar uma nota...' 
+    this.placeholder = this.createNoteText 
   }
 
   addPallelaColor = (colorPaletteBall: PalleteColors) => {
     this.removeCheckedPalleteColor()
     colorPaletteBall.checkedColor = true
+
+    this.noteWraperColor = colorPaletteBall.bgColor
   }
 
   removeCheckedPalleteColor() {
     this.colorPaletteBalls.forEach((colorPaletteBall: PalleteColors) => {
       colorPaletteBall.checkedColor = false
     })
+
+    this.noteWraperColor = colorPaletteBallsMock[0].bgColor
+  }
+
+  closeNoneForm = event => {
+    this.noteToggle = false 
+    event.stopPropagation()
   }
 
   ngOnInit(): void {

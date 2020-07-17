@@ -1,10 +1,10 @@
-<div class="note-wraper" [ngClass]="{'note-open': noteToggle}" (click)="openNote($event)">
+<div [style.background-color]="noteWraperColor" class="note-wraper" [ngClass]="{'note-open': noteToggle}" (click)="openFormInsertNote($event)">
     <div class="note-header">
       <div class="btn-hover icon-check">
         <img src="../../../assets/images/check.svg" alt="check">
       </div>
       <div class="input-wraper">
-        <input type="text" [placeholder]="placeholder">
+        <input [style.background-color]="noteWraperColor" type="text" [placeholder]="placeholder">
       </div>
     </div>
     <div class="note-body"></div>
@@ -17,6 +17,9 @@
         <div class="palleta-box">
           <div [ngClass]="{'active-color': color.checkedColor}" (click)="addPallelaColor(color)" *ngFor="let color of colorPaletteBalls" [class]="color.className + ' ' +  'palleta-color'"></div>
         </div>
+      </div>
+      <div class="close" *ngIf="noteToggle">
+        <button (click)="closeNoneForm($event)">Fechar</button>
       </div>
     </div>
 </div>
