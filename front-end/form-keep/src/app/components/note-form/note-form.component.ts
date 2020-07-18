@@ -14,7 +14,7 @@ export class NoteFormComponent implements OnInit {
 
   noteToggle = false
   readonly createNoteText = 'Criar uma nota...'
-  placeholder = this.createNoteText
+  placeholderTitle = this.createNoteText
   readonly titleNewNote = 'Título'
   @Input() toggle: boolean
   colorPaletteBalls = colorPaletteBallsMock
@@ -27,15 +27,15 @@ export class NoteFormComponent implements OnInit {
 
   constructor(private noteService: NoteService) { }
 
-  openFormInsertNote = (event: any) => {
+  openFormInsertNote = event => {
     event.stopPropagation()
-    this.placeholder = this.titleNewNote
+    this.placeholderTitle = this.titleNewNote
     this.noteToggle = true
   }
 
   formToogleNote() {
     this.noteToggle = this.toggle
-    this.placeholder = this.createNoteText 
+    this.placeholderTitle = this.createNoteText 
   }
 
   addChekedPallelaColor = (colorPaletteBall: PalleteColors) => {
@@ -54,7 +54,7 @@ export class NoteFormComponent implements OnInit {
   }
 
   closeNoteForm(event) {
-    this.noteToggle = false 
+    this.formToogleNote()
     event.stopPropagation()
     this.getColorDefault()
     this.creteNote()
