@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-BR" ng-app="appRoot">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.8/angular.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular-route.min.js"></script>
+  <link rel="stylesheet" href="app.css">
+  <title>APP ROOT</title>
+</head>
+
+<body ng-controller="microFrontEnds as microApp">
+  <header>
+    <h1>{{microApp.title}}</h1>
+
+    <div class="links">
+      <a ng-href="renovacao-cadastral">Renovação Cadastral</a>
+      <a ng-href="pagamentos">Pagamentos</a>
+    </div>
+  </header>
+
+  <div class="container">
+    <ng-view></ng-view>
+  </div>
+</body>
+
+<script src="app.js"></script>
+<script src="http://localhost:5001/polyfills.js"></script>
+<script src="http://localhost:5002/polyfills.js"></script>
+
+</html>
