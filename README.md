@@ -57,7 +57,7 @@ vamos entrar no app hospedeiro e executar o seguinte comando.
 
 👌 pronto! Nosso app está rodando na porta: http://localhost:3000
 
-vamos subir os dois Micro Frontends agora. Para isso, entre nos diretórios abaixo e
+Vamos subir os dois Micro Frontends agora. Para isso, entre nos diretórios abaixo e
 execute os seguintes comandos:
 
 ```bash
@@ -141,7 +141,7 @@ ngDoBootstrap(): void {
 }
 ```
 
-O bootstrap do Angular devemos remover e crialo na mão,
+O bootstrap do Angular devemos remover e criá-lo na mão,
 
 ```javascript
 bootstrap: [],
@@ -176,7 +176,7 @@ rodadando em suas devidas portas.
 
 Como é um app apenas com Angular JS, podemos criar os scripts para adicionar ao body da nossa aplicação.
 
-Esses scripts é de cada Micro Front-End que está rodando em suas portas/domínios
+Esses scripts são de cada Micro Front-End que está rodando em suas portas/domínios
 
 ```javascript
   const scriptAppPagamentos = document.createElement('script');
