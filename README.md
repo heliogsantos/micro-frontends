@@ -1,224 +1,230 @@
 <p align="center">
-  <img src="images/logo.jpg"  width="1000">
+  <img src="images/logo.jpg"  width="400">
+</p>
+
+<p align="center">
+  <img src="images/micro-apps.jpg"  width="400">
 </p>
 
 ## Introdução
 
-Este projeto tem como objetivo ensinar como implementar **Micro Frontend**  no Angular.
+Este projeto tem como objetivo ensinar como implementar **Micro Frontend** no Angular.
 
 Ferramentas necessárias para subir o projeto:
 
-- Angular v9.1.7
+- Angular v11.2.4
 - Node
 
 ## Início rápido
 
-``` bash
+```bash
 git clone https://github.com/heliogsantos/micro-frontends.git
 
-🚪 cd keep-app
+🚪 cd app-root
 
   ⌨️ npm install
-  
-  ⌨️ npm start
 
-🚪 cd cards-keep
+🚪 cd app-pagamentos
 
   ⌨️ npm install
-  
-  ⌨️ npm start
 
-🚪 cd form-keep
+🚪 cd app-renovacao-cadastral
 
   ⌨️ npm install
-  
-  ⌨️ npm start
 ```
 
 ## Detalhes dos Micro Frontends
 
-Temos dois Micro Frontends **(form-keep, cards-keep)**
+Temos dois Micro Frontends **(app-pagamentos, app-renovacao-cadastral)**
 
-- O **keep-app**, é o app root. Ele vai receber todos os Micro Frontends.
+- O **app-root**, é o app hospedeiro. Ele vai receber todos os Micro Frontends. 👨‍💻 Angular JS
 
-- O micro frontend **form-keep**, é o formulário para adicionar tarefas.
+- O micro front-end **app-pagamentos**, é o aplicativo de pagamentos. 👨‍💻 Angular
 
-- O micro frontend **cards-keep**, é wraper de cartões.
+- O micro front-end **app-renovacao-cadastral**, é o aplicativo de renovações cadastrais. 👨‍💻 Angular
 
 ## Vamos executar a nossa aplicação
 
 com todos os apps instalados e completos para execução,
-vamos entrar no app root e executar o seguinte comando.
+vamos entrar no app hospedeiro e executar o seguinte comando.
 
-``` bash
+```bash
 
-🚪 cd keep-app
+🚪 cd app-root
 
-  ng serve
+  npm start
 ```
 
-👌 pronto! Nosso app está rodando na porta: http://localhost:4200
+👌 pronto! Nosso app está rodando na porta: http://localhost:3000
 
-vamos subir os dois Micro Frontends agora. Para isso, entre nos diretórios abaixo e 
+vamos subir os dois Micro Frontends agora. Para isso, entre nos diretórios abaixo e
 execute os seguintes comandos:
 
-``` bash
+```bash
 
-🚪 cd form-app
+🚪 cd app-pagamentos
 
   npm start
 
-🚪 cd cards-app
+🚪 cd app-renovacao-cadastral
 
   npm start
 ```
 
-👌 Legal! Nosso micro frontend **form-app** está rodando na porta: http://localhost:5002
+👌 Legal! Nosso micro front-end **app-pagamentos** está rodando na porta: http://localhost:5001
 
-👌 Legal! Nosso micro frontend **cards-app** está rodando na porta: http://localhost:5001
+👌 Legal! Nosso micro frontend **app-renovacao-cadastral** está rodando na porta: http://localhost:5002
 
-😁 Pronto! Nossos apps estão todos rodando em seus devidos lugares. Com isso, podemos notar todos os 
+😁 Pronto! Nossos apps estão todos rodando em seus devidos lugares. Com isso, podemos notar todos os
 apps Angular juntos na mesma aplicação.
 
-## 🔥 Agora vamos entender como tudo foi feito em nossa aplicação
+## 🔥 Agora vamos entender como tudo isso foi feito em nossa aplicação
 
-Dependências:
+ℹ️ Dependências:
 
-Primeiro, em todos os Micro Frontends **(form-app, cards-app)**, instalamos o 
+Primeiro, em todos os Micros Frontends **(app-pagamentos, app-renovacao-cadastral)**, instalamos o
 Angular elements e o ngx-build-plus.
 
-``` bash
+```bash
   npm i --save @Angular/elements
 
   npm i @Angular/elements ngx-build-plus -D
 ```
 
-- O Angular elements, da suporte a elementos personalizados
+- O Angular elements, da suporte a elementos personalizados (também chamados de componentes da Web)
 
 - O ngx-build-plus é uma ferramenta de compilação alternativa para o Angular
 
-
-Fizemos algumas alterações no package.json dos Micro Frontends **(form-app, cards-app)**
+Fizemos algumas alterações no package.json dos Micro Frontends **(app-pagamentos, app-renovacao-cadastral)**
 para criar nossos Micro Frontends e servi-lo como elementos personalizados:
 
-``` javascript
-"start": "npm run build && serve -l 5001 dist / micro-fe-ng", 
-"build": "ng build --prod --output-hashing none --single-bundle true",
-``` 
+ℹ️ package.json:
 
-Em nosso app.module.ts dos Micro Frontends **(form-app, cards-app)** precisamos definir os 
+app-pagamentos
+
+```javascript
+ "start": "npm run build && http-server dist/app-pagamentos -p 5001",
+  "build": "ng build --prod --output-hashing none --single-bundle true",
+```
+
+app-renovacao-cadastral
+
+```javascript
+  "start": "npm run build && http-server dist/app-renovacao-cadastral -p 5002",
+  "build": "ng build --prod --output-hashing none --single-bundle true",
+```
+
+Em nosso app.module.ts dos Micro Frontends **(app-pagamentos, app-renovacao-cadastral)** precisamos definir os
 elementos personalizados
 
+app-pagamentos
 
-``` javascript
+```javascript
 constructor(private injector: Injector) {}
 
 ngDoBootstrap(): void {
   const { injector } = this
   const element = createCustomElement(AppComponent, { injector })
-  customElements.define('micro-cards-keep', element)
+  customElements.define('app-pagamentos', element)
+}
+```
+
+app-renovacao-cadastral
+
+```javascript
+constructor(private injector: Injector) {}
+
+ngDoBootstrap(): void {
+  const { injector } = this
+  const element = createCustomElement(AppComponent, { injector })
+  customElements.define('app-renovacao-cadastral', element)
 }
 ```
 
 O bootstrap do Angular devemos remover e crialo na mão,
 
-
-``` javascript
+```javascript
 bootstrap: [],
 ```
 
-Agora precisamos dizer ao Angular para utilizar a ferramenta que instalamos **ngx-build-plus**.
+Agora precisamos indicar ao Angular que devemos utilizar a ferramenta que instalamos **ngx-build-plus**.
 
-Vamos especificar em três locais dentro do **angular.json**
+Vamos especificar em três locais dentro do **angular.json** de todos os **Micros Front-Ends**
 
 No **angular.json:**
 
-``` javascript
+```javascript
 "architect": {
   "build": {
-   "builder": "ngx-build-plus: build",
+   "builder": "ngx-build-plus:browser",
      ....
   "serve": {
     "construtor": "ngx-build-plus: dev-server",
      ...
-  "test": { 
+  "test": {
     "builder": "ngx-build-plus: karma",
 ```
 
-Agora vamos da start em nossos Micro Frontends **(form-app, cards-app)** 
-
-``` bash
-🚪 cd form-app
-
-  npm start
-
-🚪 cd cards-app
-
-  npm start
-```
-
-😁 Pronto! Nossos Micro Frontends **(form-app, cards-app)** estão configurados e 
-rodadando em sua devidas portas.
-
-
-Micro frontend **form-app** está rodando na porta: http://localhost:5002/main.js
-
-Micro frontend **cards-app** está rodando na porta: http://localhost:5001/main.js
+😁 Pronto! Nossos micros front-Ends **(app-pagamentos, app-renovacao-cadastral)** estão configurados e
+rodadando em suas devidas portas.
 
 <p align="left">
-  <img src="images/excelente.jpg"  width="650">
+  <img src="images/excelente.jpg"  width="500">
 </p>
 
-### 🔥 Agora vamos configurar o nosso app root **(keep-app)**
+### 🔥 Agora vamos configurar o nosso app hospedeiro **(app-root)**
 
-Primeiro vamos ao **app.module.ts** do **(keep-app)**.
+Como é um app apenas com Angular JS, podemos criar os scripts para adicionar ao body da nossa aplicação.
 
-Adicionaremos o schemas para o Angular conhecer as tags dos Micro Frontends **(form-app, cards-app)**
+Esses scripts é de cada Micro Front-End que está rodando em suas portas/domínios
 
-``` javascript 
-schemas: [CUSTOM_ELEMENTS_SCHEMA],
-```
+```javascript
+  const scriptAppPagamentos = document.createElement('script');
 
-👍 Configuramos o **app.module.ts**
+  scriptAppPagamentos.src = 'http://localhost:5001/main.js';
 
-Vamos agora para o **app.component.ts**
+  const scriptAppRenovacaoCadastral = document.createElement('script');
 
-Criaremos e adicionaremos os scripts no body do app.
+  scriptAppRenovacaoCadastral.src = 'http://localhost:5002/main.js';
 
-``` javascript
-ngOnInit(): void {
-  const scriptMicroFormKeep = document.createElement('script')
-
-  //script do nosso Micro Frontends (form-app)
-  scriptMicroFormKeep.src = 'http://localhost:5002/main.js'
-  document.body.appendChild(scriptMicroFormKeep)
-
-  //script do nosso Micro Frontends (cards-keep)
-  const scriptMicroCardsKeep = document.createElement('script')
-  scriptMicroCardsKeep.src = 'http://localhost:5001/main.js'
-  document.body.appendChild(scriptMicroCardsKeep)
+  document.body.appendChild(scriptAppPagamentos);
+  document.body.appendChild(scriptAppRenovacaoCadastral);
 }
 ```
-👍 Configuramos o **app.component.ts**
 
-E para finalizar todas as nossas configurações, iremos para o **app.component.html**
-e adicionaremos as seguintes tags dos Micro Frontends **(form-app, cards-app)**
+E para finalizar, agora só temos que indicar ao app hospedeiro que devemos que chamar as tags dos Micros Front-Ends que injetamos via scripts.
 
+Para isso, criei dentro da minha estrutrura do **(app-root)** 2 páginas (app-pagamentos.html e app-renovacao-cadastral.html).
 
+Vamos adicionar as tags dos Micros Front-Ends em cada uma.
 
-``` html
-<micro-form-keep></micro-form-keep>
+Dentro da página 📄 **app-pagamentos.html** adicione:
 
-<micro-cards-keep></micro-cards-keep>
+```html
+<app-pagamentos></app-pagamentos>
+```
+
+Dentro da página 📄 **app-renovacao-cadastral.html** adicione:
+
+```html
+<app-renovacao-cadastral></app-renovacao-cadastral>
+```
+
+👍 Pronto! Com isso, já podemos navegar em cada Micro Front-End.
+
+```javascript
+-- Angular JS -> Hospedeiro
+  -- Angular -> Micro-Front-End
+  -- Angular -> Micro-Front-End
 ```
 
 <p align="left">
-  <img src="images/fim.jpg"  width="600">
+  <img src="images/fim.jpg"  width="500">
 </p>
 
 😁 Legal! Toda nossa aplicação está pronta.
 
-Para mais detalhes sobre Micro Frontends, eu índico os links abaixo.
+Para mais detalhes sobre Micro Front-End, segue alguns links.
 
 Blog [martinfowler](https://martinfowler.com/articles/micro-frontends.html)
 
